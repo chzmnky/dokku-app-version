@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -eo pipefail; [[ $DOKKU_TRACE ]] && set -x
+APP="$1"; REV="$2"
+APP_ROOT="${DOKKU_ROOT}/${APP}"
+GIT_REV=`cd ${APP_ROOT} && git describe --tags --always ${REV}`
+
+if [[ -f "${APP_ROOT}/ENV" ]]; then
+  dokku config:set --no-restart $APP APP_VER="${GIT_REV}"
+fi
