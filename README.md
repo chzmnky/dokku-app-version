@@ -4,6 +4,10 @@ Automatically adds the application version to container environment using the [g
 
 The value will be injected into the container environment as the `APP_VER` variable.  You can then access this in your application to use however you see fit.
 
+## Installation
+
+`dokku plugin:install https://github.com/robinbolton/dokku-app-version.git`
+
 ## Usage
 
 This plugin is automatically run whenever you deploy a new release via `git push`.
